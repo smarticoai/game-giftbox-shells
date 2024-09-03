@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Custom game test</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="manifest" href="./../../manifest.json">
+
+    <script>
+        window._smartico_user_id = 74603130;
+        window._smartico_language = 'en'; 
+    </script>
+
+    <script src="./../md5.js"></script>
+
+    <script>
+        (function(d, r, b, h, s){h=d.getElementsByTagName('head')[0];s = d.createElement('script');s.onload=b;s.src=r;h.appendChild(s);})
+        (document, '../../smartico.js', function() {
+            _smartico.init('d78934f3-1d8b-461b-9e8f-287aae43c860-2', { brand_key: 'c24a284e'});
+            
+            _smartico.on('init', () => {
+                initializeGame();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="game-container">
+    <div class="game-wrapper">
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+        </div>
+        <div class="game-content">
+            <div class="game-header-container">
+                <div class="game-header-box">
+                    <div class="game-header-shrimp left"></div>
+                    <div class="game-header-text">
+                        <div class="game-header-title" id="game-header-title"></div>
+                        <div class="game-header-description" id="game-header-description"></div>
+                    </div>
+                    <div class="game-header-shrimp right"></div>
+                </div>
+            </div>
+            <div class="game-center">
+                <div class="game-center-shells" id="game-center-shells"></div>
+            </div>
+            <div class="game-footer">
+                <div class="game-footer-buttons">
+                    <div class="game-footer-attempts" id="game-footer-attempts">
+                        <div class="attempts-text" id="attempts-text"></div>
+                        <div class="attempts-number" id="attempts-number"></div>
+                    </div>
+                    <div class="game-footer-rules" onclick="handleOpenRules();">
+                        <div class="rules-button-text" id="rules-button-text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="rules-modal" class="rules-modal"></div>
+        <div id="shell-modal" class="shell-modal"></div>
+        </div>
+    </div>
+
+    <script src="./assets/js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,705 @@
+* {
+    font-family: "Andika", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.game-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.game-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1118px;
+    height: 671px;
+    background-image: url('../../assets/img/custom-game-bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: 0 auto;
+    position: relative;
+}
+
+.game-wrapper .loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0.7;
+    display: none;
+    transition: all 1s ease;
+}
+
+.game-wrapper .loading .spinner {
+    border: 8px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    border-top: 8px solid #fff;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+.game-wrapper .game-content {
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.game-wrapper .game-content .game-header-container {
+    width: 405px;
+    height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url('../img/header-bg.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.game-wrapper .game-content .game-header-container .game-header-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.game-wrapper .game-content .game-header-container .game-header-box .game-header-shrimp {
+    width: 54px;
+    height: 54px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.game-wrapper .game-content .game-header-container .game-header-box .game-header-shrimp.left {
+    background-image: url('../img/shrimp.png');
+}
+
+.game-wrapper .game-content .game-header-container .game-header-box .game-header-shrimp.right {
+    background-image: url('../img/shrimp.png');
+    transform: rotateY(180deg);
+}
+
+.game-wrapper .game-content .game-header-container .game-header-box .game-header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-wrapper .game-content .game-header-container .game-header-box .game-header-text .game-header-title {
+    font-family: "Aladin", system-ui;
+    font-size: 26px;
+    line-height: 24px;
+    text-align: center;
+    color: #572E0F;
+}
+
+.game-wrapper .game-content .game-header-container .game-header-box .game-header-text .game-header-description {
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    color: #572E0F;
+}
+
+.game-wrapper .game-content .game-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 660px;
+    height: 400px;
+    margin-top: 20px;
+}
+
+.game-wrapper .game-content .game-center .game-center-shells {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-content: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.game-wrapper .game-content .game-center .game-center-shells .game-shell {
+    width: 118px;  
+    height: 120px; 
+    background-image: url('../img/shell.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.game-wrapper .game-content .game-center .game-center-shells .game-shell:last-child {
+    display: none;
+}
+
+.game-wrapper .game-content .game-center .game-center-shells .game-shell.disabled {
+    opacity: 0.5;
+    filter: grayscale(1);
+    cursor: default;
+}
+
+.game-wrapper .game-content .game-center .game-center-shells .game-shell.disabled:hover {
+    animation: none;
+}
+
+.game-wrapper .game-content .game-center .game-center-shells .game-shell:hover {
+    animation: bob 1.5s ease-in-out infinite;
+}
+
+.game-wrapper .game-content .game-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.game-wrapper .game-content .game-footer .game-footer-buttons {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-attempts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 95px;
+    height: 83px;
+    background-image: url('../img/attempts-bg.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-left: 35px;
+}
+
+.game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-attempts.no-attempts {
+    background-image: url('../img/attempts-bg-big.png');
+    width: 278px;
+    height: 83px;
+}
+
+.game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-attempts .attempts-text {
+    font-size: 12px;
+    line-height: 24px;
+    color: #572E0F;
+    text-align: center;
+}
+
+.game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-attempts .attempts-text.no-attempts {
+    font-family: "Aladin", system-ui;
+    font-size: 24px;
+    line-height: 24px;
+    color: #BA153E;
+    width: 65%;
+    text-align: left;
+}
+
+.game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-attempts .attempts-number {
+    font-family: "Aladin", system-ui;
+    font-size: 26px;
+    line-height: 24px;
+    color: #572E0F;
+}
+
+.game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-rules {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 27px;
+    width: 144px;
+    height: 37px;
+    cursor: pointer;
+    position: relative;
+}
+
+.game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-rules::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/rules-btn.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 1;
+}
+
+.game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-rules .rules-button-text {
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    color: #572E0F;
+    position: relative;
+    z-index: 2;
+}
+
+.game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-rules:hover::before {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(1035%) hue-rotate(16deg) brightness(117%) contrast(83%);
+}
+
+.game-wrapper .modal-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(15, 44, 87, .7);
+    opacity: 0;
+    z-index: 1000;
+    transition: opacity .5s ease-in;
+    visibility: hidden;
+}
+
+.game-wrapper .modal-wrapper.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.game-wrapper .modal-wrapper .modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.game-wrapper .modal-wrapper .modal-content .modal-content-text {
+    width: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.game-wrapper .modal-wrapper .modal-content .modal-content-text .modal-content-title {
+    font-family: "Aladin", system-ui;
+    font-size: 32px;
+    line-height: 42px;
+    color: #FFF;
+    text-align: center;
+}
+
+.game-wrapper .modal-wrapper .modal-content .modal-content-text .modal-content-rules {
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFF;
+}
+
+.game-wrapper .modal-wrapper .modal-content .modal-content-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 144px;
+    height: 37px;
+    position: relative;
+    cursor: pointer;
+}
+
+.game-wrapper .modal-wrapper .modal-content .modal-content-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/rules-btn.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    z-index: 1;
+}
+
+.game-wrapper .modal-wrapper .modal-content .modal-content-button:hover::before {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(1035%) hue-rotate(16deg) brightness(117%) contrast(83%);
+}
+
+.game-wrapper .modal-wrapper .modal-content .modal-content-button .modal-content-button-text {
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    color: #572E0F;
+    position: relative;
+    z-index: 2;
+}
+
+.game-wrapper .modal-shell-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(15, 44, 87, .7);
+    opacity: 0;
+    z-index: 1000;
+    transition: opacity .5s ease-in;
+    visibility: hidden;
+}
+
+.game-wrapper .modal-shell-wrapper.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-animated-shell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    transition: transform 1s ease-in-out;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-animated-shell.hidden {
+    display: none;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-animated-shell .game-shell-animated {
+    width: 250px;  
+    height: 250px; 
+    background-image: url('../img/shell-big.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: scale-up-center 0.5s forwards, shaker 1s infinite 0.5s, scale-down-center 0.5s forwards 2s;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content.hidden {
+    display: none;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content.show-prize {
+    animation: scale-up-reveal 0.5s ease-in;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    width: 450px;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-image {
+    position: relative;
+    width: 328px;
+    height: 385px;
+    background-image: url('../img/shell-open.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-image .shell-prize {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, 0%);
+}
+
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-image .shell-prize .shell-prize-img {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-image .shell-prize .sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-image .shell-prize .sparkles .sparkle {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.6), 0 0 12px rgba(255, 255, 255, 0.4);
+    opacity: 0;
+    animation: sparkle-animation 1s ease-in-out infinite;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-message {
+    font-family: "Aladin", system-ui;
+    font-size: 32px;
+    line-height: 42px;
+    color: #FFF;
+    text-align: center;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 144px;
+    height: 37px;
+    background-image: url('../img/rules-btn.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    transform: translateY(100%);
+    opacity: 0;
+    animation: none;
+}
+
+.modal-shell-wrapper.active .shell-button {
+    animation: slide-up 1s ease forwards !important;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-button:hover {
+    transform: scale(1.1);
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-button .shell-button-text {
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    color: #572E0F;
+}
+
+@keyframes bob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes sparkle-animation {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes scale-up-center {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shaker {
+    0% {
+        transform: rotateZ(0);
+    }
+    25% {
+        transform: rotateZ(-25deg);
+    }
+    50% {
+        transform: rotateZ(25deg);
+    }
+    75% {
+        transform: rotateZ(-25deg);
+    }
+    100% {
+        transform: rotateZ(0);
+    }
+}
+
+@keyframes scale-down-center {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes scale-up-reveal {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+@media screen and (max-width: 500px) {
+    .game-wrapper {
+        background-image: url('../img/custom-game-bg-mobile.png');
+        width: 100vw;
+        height: 100vh;
+        margin: unset;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    .game-wrapper .game-content {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .game-wrapper .game-content .game-header-container {
+        margin-top: 20px;
+        width: 350px;
+    }
+
+    .game-wrapper .game-content .game-header-container .game-header-box .game-header-shrimp.left {
+        width: 43px;
+        height: 25px;
+    }
+
+    .game-wrapper .game-content .game-header-container .game-header-box .game-header-shrimp.right {
+        width: 43px;
+        height: 25px;
+    }
+
+    .game-wrapper .game-content .game-header-container .game-header-box .game-header-text .game-header-title {
+        font-size: 24px;
+    }
+
+    .game-wrapper .game-content .game-header-container .game-header-box .game-header-text .game-header-description {
+        font-size: 10px;
+    }
+
+    .game-wrapper .game-content .game-center {
+        width: 100%;
+        height: 350px;
+        margin-top: 40px;
+    }
+
+    .game-wrapper .game-content .game-center .game-center-shells {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .game-wrapper .game-content .game-center .game-center-shells .game-shell {
+        width: 100%;
+        height: 73px;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .game-wrapper .game-content .game-center .game-center-shells .game-shell:last-child {
+        display: block;
+    }
+
+    .game-wrapper .game-content .game-footer {
+        margin-bottom: 20px;
+    }
+
+    .game-wrapper .game-content .game-footer .game-footer-buttons {
+        align-items: center;
+    }
+
+    .game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-attempts {
+        margin-left: unset;
+    }
+
+    .game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-rules {
+        margin-right: unset;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-attempts .attempts-text {
+        font-size: 10px;
+    }
+
+    .game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-attempts .attempts-text.no-attempts {
+        font-size: 18px;
+        line-height: unset;
+    }
+
+    .game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-attempts .attempts-number {
+        font-size: 24px;
+    }
+
+    .game-wrapper .modal-wrapper .modal-content {
+        gap: 20px;
+    }
+
+    .game-wrapper .modal-wrapper .modal-content .modal-content-text {
+        width: 330px;
+    }
+
+    .game-wrapper .modal-wrapper .modal-content .modal-content-text .modal-content-title {
+        font-size: 24px;
+    }
+
+    .game-wrapper .modal-wrapper .modal-content .modal-content-button {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .game-wrapper .modal-shell-wrapper .modal-shell-content {
+        padding: 0 20px;
+    }
+
+    .game-wrapper .modal-shell-wrapper .modal-shell-content .shell-message {
+        font-size: 24px;
+    }
+}
