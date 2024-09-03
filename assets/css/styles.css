@@ -237,6 +237,11 @@
     height: 37px;
     cursor: pointer;
     position: relative;
+    color: #572E0F;
+}
+
+.game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-rules:hover {
+    color: #000;
 }
 
 .game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-rules::before {
@@ -257,13 +262,12 @@
     font-size: 12px;
     line-height: 24px;
     text-align: center;
-    color: #572E0F;
     position: relative;
     z-index: 2;
 }
 
 .game-wrapper .game-content .game-footer .game-footer-buttons .game-footer-rules:hover::before {
-    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(1035%) hue-rotate(16deg) brightness(117%) contrast(83%);
+    filter: brightness(0) saturate(100%) invert(79%) sepia(31%) saturate(935%) hue-rotate(169deg) brightness(102%) contrast(102%);
 }
 
 .game-wrapper .modal-wrapper {
@@ -327,6 +331,11 @@
     height: 37px;
     position: relative;
     cursor: pointer;
+    color: #572E0F;
+}
+
+.game-wrapper .modal-wrapper .modal-content .modal-content-button:hover {
+    color: #000;
 }
 
 .game-wrapper .modal-wrapper .modal-content .modal-content-button::before {
@@ -344,14 +353,13 @@
 }
 
 .game-wrapper .modal-wrapper .modal-content .modal-content-button:hover::before {
-    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(1035%) hue-rotate(16deg) brightness(117%) contrast(83%);
+    filter: brightness(0) saturate(100%) invert(79%) sepia(31%) saturate(935%) hue-rotate(169deg) brightness(102%) contrast(102%);
 }
 
 .game-wrapper .modal-wrapper .modal-content .modal-content-button .modal-content-button-text {
     font-size: 12px;
     line-height: 24px;
     text-align: center;
-    color: #572E0F;
     position: relative;
     z-index: 2;
 }
@@ -475,30 +483,38 @@
     justify-content: center;
     width: 144px;
     height: 37px;
+    position: relative;
+    cursor: pointer;
+    color: #572E0F;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-button:hover {
+    color: #000;
+}
+
+.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url('../img/rules-btn.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    transition: all 0.5s ease;
-    cursor: pointer;
-    transform: translateY(100%);
-    opacity: 0;
-    animation: none;
+    z-index: 1;
 }
 
-.modal-shell-wrapper.active .shell-button {
-    animation: slide-up 1s ease forwards !important;
-}
-
-.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-button:hover {
-    transform: scale(1.1);
+.game-wrapper .modal-shell-wrapper .modal-shell-content .shell-button:hover::before {
+    filter: brightness(0) saturate(100%) invert(79%) sepia(31%) saturate(935%) hue-rotate(169deg) brightness(102%) contrast(102%);
 }
 
 .game-wrapper .modal-shell-wrapper .modal-shell-content .shell-button .shell-button-text {
     font-size: 12px;
     line-height: 24px;
     text-align: center;
-    color: #572E0F;
+    z-index: 2;
 }
 
 @keyframes bob {
@@ -522,17 +538,6 @@
     100% {
         transform: scale(0);
         opacity: 0;
-    }
-}
-
-@keyframes slide-up {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
     }
 }
 
