@@ -64,7 +64,7 @@
 }
 
 .game-wrapper .game-content .game-header-container {
-    width: 405px;
+    width: 100%;
     height: 82px;
     display: flex;
     align-items: center;
@@ -77,11 +77,9 @@
 }
 
 .game-wrapper .game-content .game-header-container .game-header-box {
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .game-wrapper .game-content .game-header-container .game-header-box .game-header-shrimp {
@@ -94,11 +92,13 @@
 
 .game-wrapper .game-content .game-header-container .game-header-box .game-header-shrimp.left {
     background-image: url('../img/shrimp.png');
+    margin-right: 8px;
 }
 
 .game-wrapper .game-content .game-header-container .game-header-box .game-header-shrimp.right {
     background-image: url('../img/shrimp.png');
     transform: rotateY(180deg);
+    margin-left: 8px;
 }
 
 .game-wrapper .game-content .game-header-container .game-header-box .game-header-text {
@@ -595,11 +595,16 @@
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
+    .game-container {
+        height: 100dvh;
+        width: 100dvw;
+    }
+
     .game-wrapper {
         background-image: url('../img/custom-game-bg-mobile.png');
-        width: 100vw;
-        height: 100vh;
+        width: 100dvw;
+        height: 100dvh;
         margin: unset;
         background-size: cover;
         overflow: hidden;
@@ -607,12 +612,7 @@
 
     .game-wrapper .game-content {
         justify-content: space-between;
-        padding: 0 20px;
-    }
-
-    .game-wrapper .game-content .game-header-container {
-        margin-top: 20px;
-        width: 350px;
+        padding: 20px;
     }
 
     .game-wrapper .game-content .game-header-container .game-header-box .game-header-shrimp.left {
@@ -635,8 +635,8 @@
 
     .game-wrapper .game-content .game-center {
         width: 100%;
-        height: 350px;
-        margin-top: 40px;
+        height: auto;
+        margin-top: unset;
     }
 
     .game-wrapper .game-content .game-center .game-center-shells {
@@ -654,9 +654,6 @@
         display: block;
     }
 
-    .game-wrapper .game-content .game-footer {
-        margin-bottom: 20px;
-    }
 
     .game-wrapper .game-content .game-footer .game-footer-buttons {
         align-items: center;
