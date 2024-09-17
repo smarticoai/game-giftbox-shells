@@ -30,7 +30,7 @@ const _saw_template_id = 690;
 const _label_key = 'a6e7ac26-c368-4892-9380-96e7ff82cf3e-4';
 const _brand_key = 'f86271e6';
 
-// ID and langauge of currently identified user
+// ID and language of currently identified user
 window._smartico_user_id = 'test48054049';
 window._smartico_language = 'en'; 
 ```

@@ -81,7 +81,7 @@ const SAWPrizeName = (prize) => {
 	if (prize.prize_type === 'no-prize') {
 		return prize.aknowledge_message;
 	} else {
-		return `${prize.aknowledge_message} ${prize.name}`;
+		return `${prize.aknowledge_message ?? 'Congrats! You won'} ${prize.name}`;
 	}
 };
 
@@ -185,7 +185,7 @@ const renderGameShells = () => {
 		shell.onclick = async () => {
 			if (canSpin) {
 				try {
-					const { prize_id } = await _smartico.api.playMiniGame(selectedGame.id);
+					const { prize_id } = await window._smartico.api.playMiniGame(selectedGame.id);
 					const prize = selectedGame.prizes.find((p) => p.id === prize_id);
 					handleOpenShell(prize);
 					await updateSpinCount();
