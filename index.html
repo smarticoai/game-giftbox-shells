@@ -9,22 +9,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Aladin&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="manifest" href="./../../manifest.json">
 
     <script>
-        window._smartico_user_id = 74603130;
+        const _saw_template_id = 690;
+        const _label_key = 'a6e7ac26-c368-4892-9380-96e7ff82cf3e-4';
+        const _brand_key = 'f86271e6';
+
+
+        window._smartico_allow_localhost = true;
+        window._smartico_user_id = 'test48054049';
         window._smartico_language = 'en'; 
     </script>
 
-    <script src="./../md5.js"></script>
-
     <script>
         (function(d, r, b, h, s){h=d.getElementsByTagName('head')[0];s = d.createElement('script');s.onload=b;s.src=r;h.appendChild(s);})
-        (document, '../../smartico.js', function() {
-            _smartico.init('d78934f3-1d8b-461b-9e8f-287aae43c860-2', { brand_key: 'c24a284e'});
+        (document, 'https://libs.smartico.ai/smartico.js', function() {
+            _smartico.init(_label_key, { brand_key: _brand_key});
             
             _smartico.on('init', () => {
-                initializeGame();
+                _smartico.suspendInbox(true);
+                _smartico.suspendPopups(true);
+                initializeGame(_saw_template_id);
             });
         });
     </script>

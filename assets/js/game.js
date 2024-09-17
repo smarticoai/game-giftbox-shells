@@ -92,7 +92,7 @@ let openShell = false;
 let playerInfo = {};
 let canSpin = false;
 
-const loadMiniGames = async () => {
+const loadMiniGames = async (saw_template_id) => {
 	if (window._smartico) {
 		try {
 			loadingElement.style.display = 'flex';
@@ -103,7 +103,7 @@ const loadMiniGames = async () => {
 
 			miniGames = games;
 			playerInfo = userInfo;
-			selectedGame = miniGames.find((g) => g.id === 2066);
+			selectedGame = miniGames.find((g) => g.id === saw_template_id);
 			canSpin = SAWCanSpin(selectedGame, playerInfo.ach_points_balance);
 
 			if (selectedGame) {
@@ -309,6 +309,6 @@ const startSparkles = () => {
 	setInterval(createSparkle, 300);
 };
 
-const initializeGame = () => {
-	loadMiniGames();
+const initializeGame = (saw_template_id) => {
+	loadMiniGames(saw_template_id);
 };

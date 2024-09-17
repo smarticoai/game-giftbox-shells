@@ -1,0 +1,15 @@
+{
+    "name": "game-giftbox-shells",
+    "version": "1.0.0",
+    "author": "Smartico.ai <support@smartico.ai>",
+    "devDependencies": {
+        "node-static": "^0.7.11",
+        "npm-run-all": "^4.1.5",
+        "open-cli": "^5.0.0"
+    },
+    "scripts": {
+        "open": "open-cli http://localhost:12346/index.html",
+        "dev": "npm-run-all --parallel server open",
+        "server": "static . --host-address localhost --port 12346 --gzip"
+    }
+}
